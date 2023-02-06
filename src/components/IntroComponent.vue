@@ -1,28 +1,36 @@
 <template>
     <div class="content"> 
         <br/>
-        <h2 v-if!="visible">{{this.$store.getters.getIntro(1)}}</h2>
-        <h2 v-if!="visible">{{this.$store.getters.getIntro(2)}}</h2>
+        <h2>{{message}}</h2>
+        <h2 v-if="visible">{{this.$store.getters.getIntro(1)}}</h2>
+        <h2 v-if="visible">{{this.$store.getters.getIntro(2)}}</h2>
     </div>
     <div class="bStart">
-        <button class="button buttonStart"><span>Ver anuncios pendientes</span></button>
+        <button v-if="showButton" class="button buttonStart" @click="changeMessage"><span>Ver anuncios pendientes</span></button>
     </div>
-
+    <p id="demo"></p>
     
 </template>
 
 <script>
-export default({
+
+export default {
     name: 'IntroComponent',
-    data: () => ({
-        visible: true
-    }),
-    
-    methods: {
+    data() {
+        return {
+        message: "",
+        visible: true,
+        showButton: true
+        }
     },
-    mounted() {
-  }
-})
+    methods: {
+        changeMessage() {
+            this.message = this.$store.getters.getPreguntas(1)
+            this.visible = !this.visible //todo este componente sevuelve visible
+            this.showButton = false
+        }
+    }
+}
 </script>
 
 <style scoped>
