@@ -1,14 +1,15 @@
 <template>
-    <div> 
-        <h2>{{this.$store.getters.getPreguntas(1)}}</h2>
+    <div class="content"> 
+        <h2 v-if!="visible">{{this.$store.getters.getPreguntas(1)}}</h2>
     </div>
 </template>
 
 <script>
 export default({
     name: 'QuestionComponent',
-    data() {
-    },
+    data: () => ({
+        visible: false
+    }),
     methods: {
     },
     mounted() {

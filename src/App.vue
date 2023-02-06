@@ -1,30 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="soc en Jordi"/>
-  <HelloWorld msg="soc en Pau"/>
-  <QuestionComponent/>
+<IntroComponent/>
+<QuestionComponent/>
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
 import QuestionComponent from './components/QuestionComponent.vue'
+import IntroComponent from './components/IntroComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    //HelloWorld,
-    QuestionComponent 
-  }
-}
+    QuestionComponent,
+    IntroComponent,
+  },
+};
+
 </script>
 
 <style>
+.content{
+        text-align: justify;
+        margin: 20px;
+
+    }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  width: 50%;
+  height: 800px;
+  margin: 0 auto;
+  color: white;
+  background-color: rgb(70, 70, 70);
   margin-top: 60px;
 }
 </style>
