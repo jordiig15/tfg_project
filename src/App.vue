@@ -4,13 +4,13 @@
 </template>
 
 <script>
-import QuestionComponent from './components/QuestionComponent.vue'
+//import QuestionComponent from './components/QuestionComponent.vue'
 import IntroComponent from './components/IntroComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    QuestionComponent,
+    //QuestionComponent,
     IntroComponent,
   },
 };
