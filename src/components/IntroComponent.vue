@@ -10,9 +10,13 @@
     </div>
     <p id="demo"></p>
     <div class="btn-group" >
-        <button v-if="showOptions" @click="optionSelected1"><img src="https://i.ibb.co/Sy34mFZ/image-37.png"></button>
-        <button v-if="showOptions" @click="optionSelected2"><img src="https://i.ibb.co/rMrN8jR/image-38.png"></button>
-        <button v-if="showOptions" @click="optionSelected3"><img src="https://i.ibb.co/Mp3mq9r/image-39.png"></button>
+        <button v-if="showOptions1" @click="optionSelected1"><img src="https://i.ibb.co/Sy34mFZ/image-37.png"></button>
+        <button v-if="showOptions1" @click="optionSelected2"><img src="https://i.ibb.co/rMrN8jR/image-38.png"></button>
+        <button v-if="showOptions1" @click="optionSelected3"><img src="https://i.ibb.co/Mp3mq9r/image-39.png"></button>
+
+        <button v-if="showOptions2" @click="optionSelected1"><img src="https://i.ibb.co/f2nDpW9/image-41.png"></button>
+        <button v-if="showOptions2" @click="optionSelected2"><img src="https://i.ibb.co/Mpx2nKk/image-40.png"></button>
+        <button v-if="showOptions2" @click="optionSelected3"><img src="https://i.ibb.co/8dC14Z0/image-42.png"></button>
     </div>
 
     
@@ -27,30 +31,41 @@ export default {
         message: "",
         visible: true,
         showButton: true,
-        showOptions: false,
+        showOptions1: false,
+        showOptions2: false,
         preguntaCounter:1,
         imgGrlCounter:1 //contador de 3 en 3 para grl img
         }
     },
     methods: {
         changeMessage() {
-            this.message = this.$store.getters.getPreguntas(this.preguntaCounter)
+            this.message = this.$store.getters.getPreguntas(this.preguntaCounter++)
             this.visible = !this.visible //todo este componente sevuelve visible
             this.showButton = false
-            this.showOptions = true
+            this.showOptions1 = true
         },
         optionSelected1(){
             //this.$store.mutations.setSelectedOptions("1")
             this.message = this.$store.getters.getPreguntas(this.preguntaCounter++)
+            this.showOptions1 = false
+            this.showOptions2 = true
 
         },
         optionSelected2(){
-            //this.$store.mutations.setSelectedOptions("2")
+            
             this.message = this.$store.getters.getPreguntas(this.preguntaCounter++)
+            this.showOptions1 = false
+            
+            this.showOptions2 = true
+            //this.$store.mutations.setSelectedOptions("2")
         },
         optionSelected3(){
-            //this.$store.mutations.setSelectedOptions("3")
+            
             this.message = this.$store.getters.getPreguntas(this.preguntaCounter++)
+            this.showOptions1 = false
+            
+            this.showOptions2 = true
+            //this.$store.mutations.setSelectedOptions("3")
             //this.message = this.$store.getters.getSelectedOptions()
         },
     }
