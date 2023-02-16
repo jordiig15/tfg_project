@@ -2,13 +2,16 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import Vuex from 'vuex'
 import store from './store'
-import QuestionComponent from './components/QuestionComponent.vue'
+import AppContainer from './components/AppContainer.vue'
 import IntroComponent from './components/IntroComponent.vue'
-
+import QuestionsForm from './components/QuestionsForm.vue'
+import provesV from './components/provesV.vue'
 
 const app = createApp(App)
-            .component('QuestionComponent', QuestionComponent)
+            .component('AppContainer', AppContainer)
             .component('IntroComponent', IntroComponent)
+            .component('QuestionsForm', QuestionsForm)
+            .component('provesV', provesV)
             .use(store)
             .use(Vuex)
 
