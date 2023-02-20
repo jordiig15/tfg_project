@@ -1,13 +1,16 @@
 <template>
   <AppContainer class="center">
     <IntroComponent/>
+    <div v-if="this.$store.getters.getShowQuestions == true">
+        <QuestionsForm/>
+    </div>
   </AppContainer>
 </template>
 
 <script>
 import AppContainer from './components/AppContainer.vue'
 import IntroComponent from './components/IntroComponent.vue'
-//import QuestionsForm from './components/QuestionsForm.vue'
+import QuestionsForm from './components/QuestionsForm.vue'
 //import provesV from './components/provesV.vue'
 
 export default {
@@ -15,7 +18,7 @@ export default {
   components: {
     AppContainer,
     IntroComponent,
-    //QuestionsForm,
+    QuestionsForm,
     //provesV
   },
 };

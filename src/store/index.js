@@ -2,6 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    showQuestions:false,
+
     intro:[
       "Hola, a partir de ahora vas a formar parte de nuestra empresa de publicidad, nuestra epresa trata de contratar a influencers / modelos para hacer diferentes tipos de promociones.",
       "Necesitamos tu ayuda!"
@@ -45,8 +47,11 @@ export default createStore({
     getIntro:(state) => (id) => {
       return state.intro[id-1];
     },
-    getSelectedOptions:state => {
+    getSelectedOptions:(state) => {
       return state.selectedOptions;
+    },
+    getShowQuestions:(state) =>{
+      return state.showQuestions;
     }
 
   },
@@ -66,7 +71,11 @@ export default createStore({
     },
     setSelectedOptions(state, answer){
       state.selectedOptions.push(answer);
+    },
+    setShowQuestions(state,newState){
+      state.showQuestions = newState;
     }
+
   },
 
   actions: {},
