@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     showQuestions:false,
+    endQuestions:false,
 
     intro:[
       "Hola, a partir de ahora vas a formar parte de nuestra empresa de publicidad, nuestra epresa trata de contratar a influencers / modelos para hacer diferentes tipos de promociones.",
@@ -29,7 +30,6 @@ export default createStore({
       "https://i.ibb.co/f2nDpW9/image-41.png",
       "https://i.ibb.co/Mpx2nKk/image-40.png",
       "https://i.ibb.co/8dC14Z0/image-42.png",
-
     ],
     selectedOptions:[],
   },
@@ -52,6 +52,9 @@ export default createStore({
     },
     getShowQuestions:(state) =>{
       return state.showQuestions;
+    },
+    getEndQuestions:(state) =>{
+      return state.endQuestions;
     }
 
   },
@@ -74,6 +77,9 @@ export default createStore({
     },
     setShowQuestions(state,newState){
       state.showQuestions = newState;
+    },
+    setEndQuestions(state,newState){
+      state.endQuestions = newState;
     }
 
   },

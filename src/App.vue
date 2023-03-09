@@ -4,7 +4,12 @@
     <div v-if="this.$store.getters.getShowQuestions == true">
         <QuestionsForm/>
     </div>
+    <GameComponent/>
+    <div v-if="this.$store.getters.getEndQuestions == true">
+      <GameComponent/>
+    </div>
   </AppContainer>
+  
 </template>
 
 <script>
@@ -12,6 +17,7 @@ import AppContainer from './components/AppContainer.vue'
 import IntroComponent from './components/IntroComponent.vue'
 import QuestionsForm from './components/QuestionsForm.vue'
 //import provesV from './components/provesV.vue'
+import GameComponent from './components/GameComponent.vue';
 
 export default {
   name: 'App',
@@ -19,6 +25,7 @@ export default {
     AppContainer,
     IntroComponent,
     QuestionsForm,
+    GameComponent,
     //provesV
   },
 };
