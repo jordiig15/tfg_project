@@ -21,27 +21,27 @@ export default {
 
       let score = 0;
 
-      function createFruit() {
-        const fruits = ["🍎", "🍌", "🍇", "🍊", "🍉"];
-        const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+      function createElement() {
+        const elementos = ["🍔", "🍟", "🥤", "🌭"];
+        const randomElement = elementos[Math.floor(Math.random() * elementos.length)];
         const randomX = Math.random() * canvas.width;
         const speed = Math.random() * 2 + 1;
 
-        return { x: randomX, y: 0, speed, fruit: randomFruit };
+        return { x: randomX, y: 0, speed, element: randomElement };
       }
 
-      let fruits = [];
+      let elementos = [];
 
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        fruits.forEach((fruit, index) => {
-          fruit.y += fruit.speed;
+        elementos.forEach((element, index) => {
+          element.y += element.speed;
           ctx.font = "30px Arial";
-          ctx.fillText(fruit.fruit, fruit.x, fruit.y);
+          ctx.fillText(element.element, element.x, element.y);
 
-          if (fruit.y > canvas.height) {
-            fruits.splice(index, 1);
+          if (element.y > canvas.height) {
+            elementos.splice(index, 1);
             score--;
           }
         });
@@ -56,13 +56,13 @@ export default {
         const x = event.clientX;
         const y = event.clientY;
 
-        fruits.forEach((fruit, index) => {
+        elementos.forEach((element, index) => {
           const distance = Math.sqrt(
-            Math.pow(x - fruit.x, 2) + Math.pow(y - fruit.y, 2)
+            Math.pow(x - element.x, 2) + Math.pow(y - element.y, 2)
           );
 
           if (distance <= 30) {
-            fruits.splice(index, 1);
+            elementos.splice(index, 1);
             score++;
           }
         });
@@ -74,8 +74,8 @@ export default {
       canvas.addEventListener("click", onClick);
 
       setInterval(() => {
-        const fruit = createFruit();
-        fruits.push(fruit);
+        const element = createElement();
+        elementos.push(element);
       }, 1000);
 
       draw();

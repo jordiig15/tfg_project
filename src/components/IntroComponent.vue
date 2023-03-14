@@ -9,7 +9,11 @@
     </div>
     <div class="bright">
         <button v-if="showButton" class="button buttonStart" @click="startQuestions"><span>Ver anuncios pendientes</span></button>
-    </div>    
+    </div>   
+    <div v-if="showButton"> 
+        <br><br/>
+        <img src=https://i.ibb.co/g66dS7N/2023-03-14-10h15-39.png>
+    </div>
     
 </template>
 
@@ -23,6 +27,7 @@ export default {
         message: "",
         visible: true,
         showButton: true,
+        showLogo: true,
         }
     },
     methods: {
@@ -30,6 +35,7 @@ export default {
             this.message = this.$store.getters.getPreguntas(this.preguntaCounter++)
             this.visible = !this.visible //todo este componente sevuelve invisible
             this.showButton = false
+            this.showLogo = false
             this.$store.commit("setShowQuestions",true)
         },
     }

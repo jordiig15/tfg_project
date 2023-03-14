@@ -4,7 +4,7 @@
     <div v-if="this.$store.getters.getShowQuestions == true">
         <QuestionsForm/>
     </div>
-    <GameComponent/>
+    <!-- <GameComponent/> -->
     <div v-if="this.$store.getters.getEndQuestions == true">
       <GameComponent/>
     </div>

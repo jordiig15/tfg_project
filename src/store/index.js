@@ -6,7 +6,7 @@ export default createStore({
     endQuestions:false,
 
     intro:[
-      "Hola, a partir de ahora vas a formar parte de nuestra empresa de publicidad, nuestra epresa trata de contratar a influencers / modelos para hacer diferentes tipos de promociones.",
+      "Hola, a partir de ahora vas a formar parte de nuestra empresa de publicidad llamada AdModels, nuestra epresa trata de contratar a influencers / modelos para hacer diferentes tipos de promociones.",
       "Necesitamos tu ayuda!"
     ],
      
