@@ -57,7 +57,7 @@
 
 <script>
 
-
+import emailjs from 'emailjs-com';
 export default({
     name: 'QuestionsForm',
     data(){
@@ -160,6 +160,7 @@ export default({
             }else{
                 this.submitAnswers(selectedOption); 
                 this.$store.commit('setEndQuestions', true);
+                //this.sendEmail();
             }
             
 
@@ -168,6 +169,25 @@ export default({
 
             this.$store.commit('setSelectedOptions', selectedOption);
              console.log(this.$store.getters.getSelectedOptions)
+        },
+
+        sendEmail: function(){
+            
+            
+            var templateParams = {
+                message: JSON.stringify(this.$store.getters.getSelectedOptions)
+            };  
+            try {
+                emailjs.send('service_dyrwooa','template_pr1keyv', templateParams, 'gxG-DQo0IiVfW93Tk')
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+            } catch(error) {
+                console.log({error})
+            }
         }
     }
 })

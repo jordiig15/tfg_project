@@ -15,6 +15,8 @@ export default {
       const ctx = canvas.getContext("2d");
 
       function setCanvasDimensions() {
+        
+      
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       }
