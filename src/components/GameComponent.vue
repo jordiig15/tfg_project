@@ -16,9 +16,8 @@ export default {
 
       function setCanvasDimensions() {
         
-      
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = 960;
+        canvas.height = 800;
       }
 
       let score = 0;
@@ -55,15 +54,16 @@ export default {
       }
 
       function onClick(event) {
-        const x = event.clientX;
+        const x = event.clientX - 485;
         const y = event.clientY;
-
+        console.log(x,y,"mouse"); 
         elementos.forEach((element, index) => {
+          console.log(element.x,element.y,'element'); 
           const distance = Math.sqrt(
             Math.pow(x - element.x, 2) + Math.pow(y - element.y, 2)
           );
 
-          if (distance <= 30) {
+          if (distance <= 40) {
             elementos.splice(index, 1);
             score++;
           }
@@ -88,10 +88,12 @@ export default {
 
 <style>
 canvas {
-  width: 100%;
-  height: 100%;
+  width: 960px !important;
+  height: 800px !important;
   position: absolute;
-  top: 0;
+  margin-top: 20px;
+  margin-left: 475px;
   left: 0;
+  background-color: rgb(104, 91, 91);
 }
 </style>
