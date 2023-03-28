@@ -32,6 +32,7 @@ export default createStore({
       "https://i.ibb.co/8dC14Z0/image-42.png",
     ],
     selectedOptions:[],
+    scores: [],
   },
 
   getters: {
@@ -55,7 +56,10 @@ export default createStore({
     },
     getEndQuestions:(state) =>{
       return state.endQuestions;
-    }
+    },
+    getScores:(state) => {
+      return state.scores;
+    },
 
   },
 
@@ -80,8 +84,10 @@ export default createStore({
     },
     setEndQuestions(state,newState){
       state.endQuestions = newState;
-    }
-
+    },
+    setScores(state, score){
+      state.scores.push(score);
+    },
   },
 
   actions: {},

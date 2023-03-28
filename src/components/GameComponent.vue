@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 export default {
   mounted() {
     this.init();
@@ -21,9 +22,11 @@ export default {
       }
 
       let score = 0;
+      let isGenerating = true;
 
       function createElement() {
         const elementos = ["🍔", "🍟", "🥤", "🌭"];
+        //const elementosRopa = ["👗", "👔", "👖", "👠","👜"];
         const randomElement = elementos[Math.floor(Math.random() * elementos.length)];
         const randomX = Math.random() * canvas.width;
         const speed = Math.random() * 2 + 1;
@@ -35,7 +38,7 @@ export default {
 
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+        ctx.fillText(`Time Left: ${secondsLeft}`, canvas.width - 200, 50);
         elementos.forEach((element, index) => {
           element.y += element.speed;
           ctx.font = "30px Arial";
@@ -47,6 +50,7 @@ export default {
           }
         });
 
+        ctx.fillStyle = "white";
         ctx.font = "30px Arial";
         ctx.fillText(`Score: ${score}`, 10, 50);
 
@@ -75,11 +79,35 @@ export default {
 
       canvas.addEventListener("click", onClick);
 
-      setInterval(() => {
-        const element = createElement();
-        elementos.push(element);
-      }, 1000);
+      // Generación de elementos durante 20 segundos
+      setTimeout(() => {
+        isGenerating = false; // detener la generación de elementos
+        elementos=[]
+        this.$store.commit("setScores",score)
+        console.log(this.$store.getters.getScores);
+        canvas.removeEventListener("click", onClick);
+      }, 20000);
 
+      let secondsLeft = 20;
+
+      function startTimer() {
+        setInterval(() => {
+          if (secondsLeft != 0){
+            secondsLeft--;
+          }
+        }, 1000);
+      }
+      startTimer();
+
+      function generateElements() {
+        if (isGenerating) {
+          const element = createElement();
+          elementos.push(element);
+          setTimeout(generateElements, 400);
+        }
+      }
+
+      generateElements();
       draw();
     },
   },
@@ -94,6 +122,7 @@ canvas {
   margin-top: 20px;
   margin-left: 475px;
   left: 0;
-  background-color: rgb(104, 91, 91);
+  color:white;
+  background-color: rgb(165, 50, 50);
 }
 </style>

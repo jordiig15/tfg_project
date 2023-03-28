@@ -21,6 +21,9 @@
         </div>
     </div>
 
+    <div id="opt game1" style="display:none">
+        <GameComponent/> 
+    </div>
     <div id="opt3" style="display:none">
         <h2 class="content">{{this.$store.getters.getPreguntas(2)}}</h2>
         <label v-for="(option, index) in options3" :key="index">
@@ -32,6 +35,10 @@
         </div>
     </div>
 
+    <div id="opt game2" style="display:none">
+        <GameComponent/> 
+    </div>
+
     <div id="opt4" style="display:none">
         <h2 class="content">{{this.$store.getters.getPreguntas(3)}}</h2>
         <label v-for="(option, index) in options4" :key="index">
@@ -41,6 +48,10 @@
         <div class="bright">
             <button class="button" @click="nextQuestion('opt4', 'opt5', this.selectedOption)"><span>NEXT</span></button>
         </div>
+    </div>
+
+    <div id="opt game3" style="display:none">
+        <GameComponent/> 
     </div>
 
     <div id="opt5" style="display:none">
@@ -56,8 +67,9 @@
 </template>
 
 <script>
-
 import emailjs from 'emailjs-com';
+//import GameComponent from './components/GameComponent.vue';
+
 export default({
     name: 'QuestionsForm',
     data(){
