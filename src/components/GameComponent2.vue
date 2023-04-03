@@ -25,8 +25,7 @@ export default {
       let isGenerating = true;
 
       function createElement() {
-        const elementos = ["🍔", "🍟", "🥤", "🌭"];
-        //const elementosRopa = ["👗", "👔", "👖", "👠","👜"];
+        const elementos = ["👗", "👔", "👖", "👠","👜"];
         const randomElement = elementos[Math.floor(Math.random() * elementos.length)];
         const randomX = Math.random() * canvas.width;
         const speed = Math.random() * 2 + 1;
@@ -60,9 +59,9 @@ export default {
       function onClick(event) {
         const x = event.clientX - 485;
         const y = event.clientY;
-        console.log(x,y,"mouse"); 
+        //console.log(x,y,"mouse"); 
         elementos.forEach((element, index) => {
-          console.log(element.x,element.y,'element'); 
+          //console.log(element.x,element.y,'element'); 
           const distance = Math.sqrt(
             Math.pow(x - element.x, 2) + Math.pow(y - element.y, 2)
           );
@@ -86,6 +85,7 @@ export default {
         this.$store.commit("setScores",score)
         console.log(this.$store.getters.getScores);
         canvas.removeEventListener("click", onClick);
+        this.$store.commit('setGame2', false);
       }, 20000);
 
       let secondsLeft = 20;
@@ -123,6 +123,6 @@ canvas {
   margin-left: 475px;
   left: 0;
   color:white;
-  background-color: rgb(165, 50, 50);
+  background-color: rgb(52, 50, 165);
 }
 </style>

@@ -4,6 +4,8 @@ export default createStore({
   state: {
     showQuestions:false,
     endQuestions:false,
+    game1: false,
+    game2: false,
 
     intro:[
       "Hola, a partir de ahora vas a formar parte de nuestra empresa de publicidad llamada AdModels, nuestra epresa trata de contratar a influencers / modelos para hacer diferentes tipos de promociones.",
@@ -33,6 +35,8 @@ export default createStore({
     ],
     selectedOptions:[],
     scores: [],
+
+    puntuation : 0,
   },
 
   getters: {
@@ -60,7 +64,18 @@ export default createStore({
     getScores:(state) => {
       return state.scores;
     },
-
+    getScore:(state)=> {
+      return state.scores[state.scores.length -1];
+    },
+    getGame1:(state) =>{
+      return state.game1;
+    },
+    getGame2:(state) =>{
+      return state.game2;
+    },
+    getPuntuation:(state) =>{
+      return state.puntuation;
+    },
   },
 
   mutations: {
@@ -87,6 +102,15 @@ export default createStore({
     },
     setScores(state, score){
       state.scores.push(score);
+    },
+    setGame1(state,newState){
+      state.game1 = newState;
+    },
+    setGame2(state,newState){
+      state.game2 = newState;
+    },
+    setPuntuation:(state,newState) =>{
+      state.puntuation += newState;
     },
   },
 

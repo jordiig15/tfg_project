@@ -4,10 +4,15 @@
     <div v-if="this.$store.getters.getShowQuestions == true">
         <QuestionsForm/>
     </div>
-    <!-- <GameComponent/> -->
+    <div v-if="this.$store.getters.getGame1 == true">
+      <GameComponent1/>
+    </div> 
+    <div v-if="this.$store.getters.getGame2 == true">
+      <GameComponent2/>
+    </div> 
     <div v-if="this.$store.getters.getEndQuestions == true">
-      <GameComponent/>
-    </div>
+      <MemoryComponent/>
+    </div> 
   </AppContainer>
   
 </template>
@@ -17,7 +22,9 @@ import AppContainer from './components/AppContainer.vue'
 import IntroComponent from './components/IntroComponent.vue'
 import QuestionsForm from './components/QuestionsForm.vue'
 //import provesV from './components/provesV.vue'
-import GameComponent from './components/GameComponent.vue';
+import MemoryComponent from './components/MemoryComponent.vue';
+import GameComponent1 from './components/GameComponent1.vue';
+import GameComponent2 from './components/GameComponent2.vue';
 
 export default {
   name: 'App',
@@ -25,7 +32,9 @@ export default {
     AppContainer,
     IntroComponent,
     QuestionsForm,
-    GameComponent,
+    GameComponent1,
+    GameComponent2,
+    MemoryComponent,
     //provesV
   },
 };
@@ -40,6 +49,11 @@ export default {
 .content{
   text-align: justify;
   margin: 20px;
+}
+.big{
+  font-size: 100px;
+  text-align: center;
+  margin-top: 300px;
 }
 .button {
         background-color:rgb(255, 0, 0);

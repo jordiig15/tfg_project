@@ -17,13 +17,40 @@
             <img :src="option.imageUrl" :alt="option.label">
         </label>
         <div class="bright">
-            <button class="button" @click="nextQuestion('opt2', 'opt3', this.selectedOption)"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('opt2', 'text1', this.selectedOption)"><span>NEXT</span></button>
         </div>
     </div>
 
-    <div id="opt game1" style="display:none">
-        <GameComponent/> 
+    <div id="text1" style="display:none">
+        <h2 class="content">Ahora que has escogido el modelo perfecto para promocionar la marca, necesitamos tu ayuda para promocionar el producto.</h2>
+        <br>
+        <h2 class="content">Para hacerlo haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!</h2>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('text1', 'game1')"><span>NEXT</span></button>
+        </div>
     </div>
+
+    <div id="game1" style="display:none">
+        <h1 class="big">{{this.$store.getters.getScore}} puntos!</h1>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('game1', 'scores1')"><span>NEXT</span></button>
+        </div>
+        <div class="bright">
+            <button class="button"><span>RESTART</span></button>
+        </div>
+    </div>
+
+    <div id="scores1" style="display:none">
+        <h1 class="content">GENIAL, Has conseguido una puntución de  {{this.$store.getters.getScore}}!</h1>
+        <br>
+        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. Felicidades, has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
+        <h2 v-if="diferentOp" class="content">Vaya, has cambiado el modelo, esto nos sale mas caro ya que tenemos que contratar a 2 modelos diferentes.</h2>
+        <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('scores1', 'opt3')"><span>NEXT</span></button>
+        </div>
+    </div>
+
     <div id="opt3" style="display:none">
         <h2 class="content">{{this.$store.getters.getPreguntas(2)}}</h2>
         <label v-for="(option, index) in options3" :key="index">
@@ -31,12 +58,16 @@
             <img :src="option.imageUrl" :alt="option.label">
         </label>
         <div class="bright">
-            <button class="button" @click="nextQuestion('opt3', 'opt4', this.selectedOption)"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('opt3', 'opt3.1', this.selectedOption)"><span>NEXT</span></button>
         </div>
     </div>
 
-    <div id="opt game2" style="display:none">
-        <GameComponent/> 
+    <div id="opt3.1" style="display:none">
+        <h2 class="content">Genial el videoclip ha salido perfecto, (TERMINAR) </h2>
+        
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt3.1', 'opt4')"><span>NEXT</span></button>
+        </div>
     </div>
 
     <div id="opt4" style="display:none">
@@ -50,10 +81,6 @@
         </div>
     </div>
 
-    <div id="opt game3" style="display:none">
-        <GameComponent/> 
-    </div>
-
     <div id="opt5" style="display:none">
         <h2 class="content">{{this.$store.getters.getPreguntas(4)}}</h2>
         <label v-for="(option, index) in options5" :key="index">
@@ -61,19 +88,51 @@
             <img :src="option.imageUrl" :alt="option.label">
         </label>
         <div class="bright">
-            <button class="button" @click="nextQuestion('opt5', 'end', this.selectedOption)"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('opt5', 'text2', this.selectedOption)"><span>NEXT</span></button>
         </div>
     </div>
+
+    <div id="text2" style="display:none">
+        <h2 class="content">Ahora que has escogido la modelo perfecto para promocionar la marca y enseñar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar el producto.</h2>
+        <br>
+        <h2 class="content">Para hacerlo, como la última vez, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!</h2>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('text2', 'game2')"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="game2" style="display:none">
+        <h1 class="big">{{this.$store.getters.getScore}} puntos!</h1>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('game2', 'scores2')"><span>NEXT</span></button>
+        </div>
+        <div class="bright">
+            <button class="button"><span>RESTART</span></button>
+        </div>
+    </div>
+
+    <div id="scores2" style="display:none">
+        <h1 class="content">GENIAL, Has conseguido una puntución de  {{this.$store.getters.getScore}}!</h1>
+        <br>
+        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. Felicidades, has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
+        <h2 v-if="diferentOp" class="content">Vaya, has cambiado el modelo, esto nos sale mas caro ya que tenemos que contratar a 2 modelos diferentes.</h2>
+        <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('scores2', 'end')"><span>NEXT</span></button>
+        </div>
+    </div>
+
 </template>
 
 <script>
 import emailjs from 'emailjs-com';
-//import GameComponent from './components/GameComponent.vue';
 
 export default({
     name: 'QuestionsForm',
     data(){
         return{
+            equalOp:false,
+            diferentOp:false,
             selectedOption: '',
             globalId: '',
             options1: [
@@ -169,7 +228,28 @@ export default({
             if(nextId != 'end'){
                 document.getElementById(nextId).style.display = "block";
                 this.submitAnswers(selectedOption); 
-            }else{
+            }if(nextId == 'game1'){
+                this.$store.commit('setGame1', true);
+            }
+            if(nextId == 'game2'){
+                this.$store.commit('setGame2', true);
+            }if(nextId == 'scores1'){
+                if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
+                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 20);
+                    this.equalOp = true;
+                }else{
+                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 15);
+                    this.diferentOp = true;
+                }
+            }if(nextId == 'scores2'){////////////////////////////
+                if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
+                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 20);
+                    this.equalOp = true;
+                }else{
+                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 15);
+                    this.diferentOp = true;
+                }
+            }if(nextId == 'end'){
                 this.submitAnswers(selectedOption); 
                 this.$store.commit('setEndQuestions', true);
                 //this.sendEmail();
