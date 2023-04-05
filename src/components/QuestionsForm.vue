@@ -143,6 +143,7 @@
 
 <script>
 import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 
 export default({
     name: 'QuestionsForm',
@@ -246,39 +247,85 @@ export default({
     },
     methods:{
         nextQuestion: function(currentId,nextId,selectedOption){
-            document.getElementById(currentId).style.display = "none";
-            if(nextId != 'end'){
-                document.getElementById(nextId).style.display = "block";
-                this.submitAnswers(selectedOption); 
-            }if(nextId == 'game1'){
-                this.$store.commit('setGame1', true);
-            }
-            if(nextId == 'game2'){
-                this.$store.commit('setGame2', true);
-            }if(nextId == 'scores1'){
-                if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
-                    this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
-                    this.equalOp = true;
-                }else{
-                    this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
-                    this.diferentOp = true;
+            if(currentId == 'opt1' || currentId == 'opt2' || currentId == 'opt3' || currentId == 'opt4' || currentId == 'opt5'){
+                if (selectedOption) {
+                    document.getElementById(currentId).style.display = "none";
+                    if(nextId != 'end'){
+                        document.getElementById(nextId).style.display = "block";
+                        this.submitAnswers(selectedOption); 
+                        this.selectedOption = null;
+                    }if(nextId == 'game1'){
+                        this.$store.commit('setGame1', true);
+                    }
+                    if(nextId == 'game2'){
+                        this.$store.commit('setGame2', true);
+                    }if(nextId == 'scores1'){
+                        if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
+                            this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
+                            this.equalOp = true;
+                        }else{
+                            this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
+                            this.diferentOp = true;
+                        }
+                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
+                    }if(nextId == 'scores2'){////////////////////////////
+                        this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
+                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
+                    }if(nextId == 'game3'){
+                        this.$store.commit('setMemory', true);
+                    }if(nextId == 'scores3'){
+                        this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
+                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
+                    }if(nextId == 'end'){
+                        this.submitAnswers(selectedOption); 
+                        this.$store.commit('setEndQuestions', true);
+                        this.selectedOption = null;
+                        //this.sendEmail();
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Opción no seleccionada!',
+                        text: 'Por favor, selecciona una opción antes de continuar.',
+                    })
                 }
-                this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
-            }if(nextId == 'scores2'){////////////////////////////
-                this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
-                this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
-            }if(nextId == 'game3'){
-                this.$store.commit('setMemory', true);
-            }if(nextId == 'scores3'){
-                this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
-                this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
-            }if(nextId == 'end'){
-                this.submitAnswers(selectedOption); 
-                this.$store.commit('setEndQuestions', true);
-                //this.sendEmail();
+            }else{
+                document.getElementById(currentId).style.display = "none";
+                if(nextId != 'end'){
+                    document.getElementById(nextId).style.display = "block";
+                    this.submitAnswers(selectedOption); 
+                    this.selectedOption = null;
+                }if(nextId == 'game1'){
+                    this.$store.commit('setGame1', true);
+                }
+                if(nextId == 'game2'){
+                    this.$store.commit('setGame2', true);
+                }if(nextId == 'scores1'){
+                    if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
+                        this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
+                        this.equalOp = true;
+                    }else{
+                        this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
+                        this.diferentOp = true;
+                    }
+                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
+                }if(nextId == 'scores2'){////////////////////////////
+                    this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
+                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
+                }if(nextId == 'game3'){
+                    this.$store.commit('setMemory', true);
+                }if(nextId == 'scores3'){
+                    this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
+                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
+                }if(nextId == 'end'){
+                    this.submitAnswers(selectedOption); 
+                    this.$store.commit('setEndQuestions', true);
+                    this.selectedOption = null;
+                    //this.sendEmail();
+                }
             }
             
-
+               
         },
         submitAnswers: function(selectedOption){
 
