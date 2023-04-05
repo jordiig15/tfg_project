@@ -43,9 +43,10 @@
     <div id="scores1" style="display:none">
         <h1 class="content">GENIAL, Has conseguido una puntución de  {{this.$store.getters.getScore}}!</h1>
         <br>
-        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. Felicidades, has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
+        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. Felicidades, has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
         <h2 v-if="diferentOp" class="content">Vaya, has cambiado el modelo, esto nos sale mas caro ya que tenemos que contratar a 2 modelos diferentes.</h2>
-        <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
+        <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
+        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('scores1', 'opt3')"><span>NEXT</span></button>
         </div>
@@ -77,7 +78,30 @@
             <img :src="option.imageUrl" :alt="option.label">
         </label>
         <div class="bright">
-            <button class="button" @click="nextQuestion('opt4', 'opt5', this.selectedOption)"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('opt4', 'opt4.1', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt4.1" style="display:none">
+        <h2 class="content">Una vez escogido a la modelo perfecta para promocionar los productos helathy, necesitamos que nos ayudes a promocionar el producto!</h2>
+        <h2 class="content">Encuentra las parejas lo mas rapido posible para poder promocionar los productos cuanto antes!</h2>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt4.1', 'game3')"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="game3" style="display:none">
+        <h1  v-if="memoryEnd" class="content">GENIAL, Has tardado un tiempo total de {{this.$store.getters.getTime}} segundos!</h1>
+        <div v-if="memoryEnd" class="bright">
+            <button class="button" @click="nextQuestion('game3', 'scores3')"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="scores3" style="display:none">
+        <h2 class="content">Felicidades, con tu ayuda hemos ganado un total de {{this.$store.getters.getPuntuation3}}$</h2>
+        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$</h2>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('scores3', 'opt5')"><span>NEXT</span></button>
         </div>
     </div>
 
@@ -96,6 +120,7 @@
         <h2 class="content">Ahora que has escogido la modelo perfecto para promocionar la marca y enseñar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar el producto.</h2>
         <br>
         <h2 class="content">Para hacerlo, como la última vez, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!</h2>
+        <h1 class="content">Ten en cuenta que los productos van a caer mas rapido esta vez! Será mas dificil obtener una buena puntuación.</h1>
         <div class="bright">
             <button class="button" @click="nextQuestion('text2', 'game2')"><span>NEXT</span></button>
         </div>
@@ -114,9 +139,7 @@
     <div id="scores2" style="display:none">
         <h1 class="content">GENIAL, Has conseguido una puntución de  {{this.$store.getters.getScore}}!</h1>
         <br>
-        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. Felicidades, has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
-        <h2 v-if="diferentOp" class="content">Vaya, has cambiado el modelo, esto nos sale mas caro ya que tenemos que contratar a 2 modelos diferentes.</h2>
-        <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation}}€.</h2>
+        <h2 class="content"> Has ganado un total de {{this.$store.getters.getPuntuation2}}$, con esto tienes un total acumulado de {{this.$store.getters.getPuntuationTotal}}$</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('scores2', 'end')"><span>NEXT</span></button>
         </div>
@@ -131,8 +154,8 @@ export default({
     name: 'QuestionsForm',
     data(){
         return{
-            equalOp:false,
-            diferentOp:false,
+            equalOp: false,
+            diferentOp: false,
             selectedOption: '',
             globalId: '',
             options1: [
@@ -206,20 +229,25 @@ export default({
             options5: [
                 {
                 value: 'option51',
-                imageUrl: 'https://i.ibb.co/f2nDpW9/image-41.png',
+                imageUrl: 'https://i.ibb.co/Mp3mq9r/image-39.png',
                 label: 'o1'
                 },
                 {
                 value: 'option52',
-                imageUrl: 'https://i.ibb.co/Mpx2nKk/image-40.png',
+                imageUrl: 'https://i.ibb.co/rMrN8jR/image-38.png',
                 label: 'o2'
                 },
                 {
                 value: 'option53',
-                imageUrl: 'https://i.ibb.co/8dC14Z0/image-42.png',
+                imageUrl: 'https://i.ibb.co/Sy34mFZ/image-37.png',
                 label: 'o3'
                 }
             ]
+        }
+    },
+    computed: {
+        memoryEnd() {
+            return !this.$store.getters.getMemory;
         }
     },
     methods:{
@@ -235,20 +263,21 @@ export default({
                 this.$store.commit('setGame2', true);
             }if(nextId == 'scores1'){
                 if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
-                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 20);
+                    this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
                     this.equalOp = true;
                 }else{
-                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 15);
+                    this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
                     this.diferentOp = true;
                 }
+                this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
             }if(nextId == 'scores2'){////////////////////////////
-                if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
-                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 20);
-                    this.equalOp = true;
-                }else{
-                    this.$store.commit('setPuntuation', this.$store.getters.getScore * 15);
-                    this.diferentOp = true;
-                }
+                this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
+                this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
+            }if(nextId == 'game3'){
+                this.$store.commit('setMemory', true);
+            }if(nextId == 'scores3'){
+                this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
+                this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
             }if(nextId == 'end'){
                 this.submitAnswers(selectedOption); 
                 this.$store.commit('setEndQuestions', true);

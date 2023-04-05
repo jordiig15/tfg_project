@@ -10,7 +10,7 @@
     <div v-if="this.$store.getters.getGame2 == true">
       <GameComponent2/>
     </div> 
-    <div v-if="this.$store.getters.getEndQuestions == true">
+    <div v-if="this.$store.getters.getMemory == true">
       <MemoryComponent/>
     </div> 
   </AppContainer>

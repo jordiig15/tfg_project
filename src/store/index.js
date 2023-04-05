@@ -6,6 +6,7 @@ export default createStore({
     endQuestions:false,
     game1: false,
     game2: false,
+    memory: false,
 
     intro:[
       "Hola, a partir de ahora vas a formar parte de nuestra empresa de publicidad llamada AdModels, nuestra epresa trata de contratar a influencers / modelos para hacer diferentes tipos de promociones.",
@@ -35,8 +36,11 @@ export default createStore({
     ],
     selectedOptions:[],
     scores: [],
-
-    puntuation : 0,
+    time: 0,
+    puntuationTotal : 0,
+    puntuation1: 0,
+    puntuation2: 0,
+    puntuation3: 0,
   },
 
   getters: {
@@ -73,8 +77,23 @@ export default createStore({
     getGame2:(state) =>{
       return state.game2;
     },
-    getPuntuation:(state) =>{
-      return state.puntuation;
+    getMemory:(state) =>{
+      return state.memory;
+    },
+    getPuntuationTotal:(state) =>{
+      return state.puntuationTotal;
+    },
+    getPuntuation1:(state) =>{
+      return state.puntuation1;
+    },
+    getPuntuation2:(state) =>{
+      return state.puntuation2;
+    },
+    getPuntuation3:(state) =>{
+      return state.puntuation3;
+    },
+    getTime:(state) =>{
+      return state.time;
     },
   },
 
@@ -109,8 +128,23 @@ export default createStore({
     setGame2(state,newState){
       state.game2 = newState;
     },
-    setPuntuation:(state,newState) =>{
-      state.puntuation += newState;
+    setMemory(state,newState){
+      state.memory = newState;
+    },
+    setPuntuationTotal:(state,newState) =>{
+      state.puntuationTotal += newState;
+    },
+    setPuntuation1:(state,newState) =>{
+      state.puntuation1 += newState;
+    },
+    setPuntuation2:(state,newState) =>{
+      state.puntuation2 += newState;
+    },
+    setPuntuation3:(state,newState) =>{
+      state.puntuation3 += newState;
+    },
+    setTime:(state,newState) =>{
+      state.time += newState;
     },
   },
 

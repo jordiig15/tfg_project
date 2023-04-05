@@ -20,7 +20,7 @@ export default {
         canvas.width = 960;
         canvas.height = 800;
       }
-
+      
       let score = 0;
       let isGenerating = true;
 
@@ -45,7 +45,7 @@ export default {
 
           if (element.y > canvas.height) {
             elementos.splice(index, 1);
-            score--;
+            score-=1.5;
           }
         });
 
@@ -103,7 +103,7 @@ export default {
         if (isGenerating) {
           const element = createElement();
           elementos.push(element);
-          setTimeout(generateElements, 400);
+          setTimeout(generateElements, 200);
         }
       }
 
