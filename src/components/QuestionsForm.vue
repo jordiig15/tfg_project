@@ -35,9 +35,6 @@
         <div class="bright">
             <button class="button" @click="nextQuestion('game1', 'scores1')"><span>NEXT</span></button>
         </div>
-        <div class="bright">
-            <button class="button"><span>RESTART</span></button>
-        </div>
     </div>
 
     <div id="scores1" style="display:none">
@@ -130,9 +127,6 @@
         <h1 class="big">{{this.$store.getters.getScore}} puntos!</h1>
         <div class="bright">
             <button class="button" @click="nextQuestion('game2', 'scores2')"><span>NEXT</span></button>
-        </div>
-        <div class="bright">
-            <button class="button"><span>RESTART</span></button>
         </div>
     </div>
 
