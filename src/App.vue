@@ -48,8 +48,19 @@ export default {
 }
 .content{
   text-align: justify;
-  margin: 20px;
+  margin: 40px;
+  color: #fff;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
+.intro{
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255,255,255,0.3), 0 0 10px rgba(255,255,255,0.3), 0 0 15px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.3), 0 0 30px rgba(255,255,255,0.3), 0 0 40px #fff;
+}
+
 .big{
   font-size: 100px;
   text-align: center;

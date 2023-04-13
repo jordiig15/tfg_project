@@ -58,7 +58,7 @@ export default {
 
       function onClick(event) {
         const x = event.clientX - 485;
-        const y = event.clientY;
+        const y = event.clientY -20;
         //console.log(x,y,"mouse"); 
         elementos.forEach((element, index) => {
           //console.log(element.x,element.y,'element'); 
@@ -119,10 +119,12 @@ canvas {
   width: 960px !important;
   height: 800px !important;
   position: absolute;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left: 475px;
   left: 0;
   color:white;
   background-color: rgb(52, 50, 165);
+  min-width: 960px;
+  min-height: 800px;
 }
 </style>

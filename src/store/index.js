@@ -26,14 +26,6 @@ export default createStore({
       "Porque crees que este modelo es el mejor para esta promocion",
       "tienes que recojer su ropa deprisa!"
     ],
-    grlimg:[
-      "https://i.ibb.co/Sy34mFZ/image-37.png",
-      "https://i.ibb.co/rMrN8jR/image-38.png",
-      "https://i.ibb.co/Mp3mq9r/image-39.png",
-      "https://i.ibb.co/f2nDpW9/image-41.png",
-      "https://i.ibb.co/Mpx2nKk/image-40.png",
-      "https://i.ibb.co/8dC14Z0/image-42.png",
-    ],
     selectedOptions:[],
     scores: [],
     time: 0,
@@ -46,9 +38,6 @@ export default createStore({
   getters: {
     getPreguntas: (state) => (id) => {
         return state.preguntas[id-1];
-    },
-    getGrlimg: (state) => (id) => {
-      return state.grlimg[id-1];
     },
     getEntretexto: (state) => (id) => {
       return state.entretexto[id-1];
@@ -100,9 +89,6 @@ export default createStore({
   mutations: {
     setEntretexto(state, id, entretexto){
         state.entretexto[id] = entretexto;
-    },
-    setGrlimg(state, id, grlimg){
-      state.grlimg[id] = grlimg;
     },
     setPreguntas(state, id, pregunta){
       state.preguntas[id] = pregunta;

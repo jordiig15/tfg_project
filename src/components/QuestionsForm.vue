@@ -1,5 +1,15 @@
 <template>
-    <div id="opt1">
+    <div id="opt0">
+        <h2 class="content">{{this.$store.getters.getIntro(1)}}</h2>
+        <br>
+        <h2 class="content">{{this.$store.getters.getIntro(2)}}</h2>
+
+            <div class="bright">
+                <button class="button" @click="nextQuestion('opt0', 'opt1')"><span>Ver anuncios pendientes</span></button>
+            </div> 
+    </div> 
+
+    <div id="opt1" style="display:none">
         <h2 class="content">{{this.$store.getters.getPreguntas(1)}}</h2>
         <label v-for="(option, index) in options1" :key="index">
             <input type="radio" id="p1" name="p1" :value="option.value" v-model="selectedOption">
@@ -61,8 +71,10 @@
     </div>
 
     <div id="opt3.1" style="display:none">
-        <h2 class="content">Genial el videoclip ha salido perfecto, (TERMINAR) </h2>
-        
+        <h2 class="content">Genial el videoclip ha salido perfecto!</h2>
+        <h2 class="content">Por tu ayuda te pagamos un total de 300$</h2>
+        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$</h2>
+        <img src="https://i.ibb.co/y8NPZHT/videoclip.jpg">
         <div class="bright">
             <button class="button" @click="nextQuestion('opt3.1', 'opt4')"><span>NEXT</span></button>
         </div>
@@ -260,7 +272,7 @@ export default({
                     if(nextId == 'game2'){
                         this.$store.commit('setGame2', true);
                     }if(nextId == 'scores1'){
-                        if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
+                        if(this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)==this.$store.getters.getSelectedOptions[2].charAt(this.$store.getters.getSelectedOptions[2].length - 1)){
                             this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
                             this.equalOp = true;
                         }else{
@@ -276,6 +288,8 @@ export default({
                     }if(nextId == 'scores3'){
                         this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
                         this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
+                    }if(nextId == 'opt3.1'){
+                        this.$store.commit('setPuntuationTotal', 300);
                     }if(nextId == 'end'){
                         this.submitAnswers(selectedOption); 
                         this.$store.commit('setEndQuestions', true);
@@ -292,37 +306,39 @@ export default({
             }else{
                 document.getElementById(currentId).style.display = "none";
                 if(nextId != 'end'){
-                    document.getElementById(nextId).style.display = "block";
-                    this.submitAnswers(selectedOption); 
-                    this.selectedOption = null;
-                }if(nextId == 'game1'){
-                    this.$store.commit('setGame1', true);
-                }
-                if(nextId == 'game2'){
-                    this.$store.commit('setGame2', true);
-                }if(nextId == 'scores1'){
-                    if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
-                        this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
-                        this.equalOp = true;
-                    }else{
-                        this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
-                        this.diferentOp = true;
+                        document.getElementById(nextId).style.display = "block";
+                        this.submitAnswers(selectedOption); 
+                        this.selectedOption = null;
+                    }if(nextId == 'game1'){
+                        this.$store.commit('setGame1', true);
                     }
-                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
-                }if(nextId == 'scores2'){////////////////////////////
-                    this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
-                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
-                }if(nextId == 'game3'){
-                    this.$store.commit('setMemory', true);
-                }if(nextId == 'scores3'){
-                    this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
-                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
-                }if(nextId == 'end'){
-                    this.submitAnswers(selectedOption); 
-                    this.$store.commit('setEndQuestions', true);
-                    this.selectedOption = null;
-                    //this.sendEmail();
-                }
+                    if(nextId == 'game2'){
+                        this.$store.commit('setGame2', true);
+                    }if(nextId == 'scores1'){
+                        if(this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)==this.$store.getters.getSelectedOptions[2].charAt(this.$store.getters.getSelectedOptions[2].length - 1)){
+                            this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
+                            this.equalOp = true;
+                        }else{
+                            this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
+                            this.diferentOp = true;
+                        }
+                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
+                    }if(nextId == 'scores2'){////////////////////////////
+                        this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
+                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
+                    }if(nextId == 'game3'){
+                        this.$store.commit('setMemory', true);
+                    }if(nextId == 'scores3'){
+                        this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
+                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
+                    }if(nextId == 'opt4'){
+                        this.$store.commit('setPuntuationTotal', 300);
+                    }if(nextId == 'end'){
+                        this.submitAnswers(selectedOption); 
+                        this.$store.commit('setEndQuestions', true);
+                        this.selectedOption = null;
+                        //this.sendEmail();
+                    }
             }
             
                

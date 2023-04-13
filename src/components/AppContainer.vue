@@ -19,6 +19,8 @@ export default({
     height: 800px;
     margin: 0 auto;
     color: white;
+    min-width: 960px;
+    min-height: 800px;
 }
 
 </style>
