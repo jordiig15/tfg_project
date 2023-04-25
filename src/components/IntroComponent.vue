@@ -7,7 +7,7 @@
         </h1>
     </div>
     <div v-if="visible">
-        <input type="text" class="input-box" v-model="inputValue" placeholder="APODO"> 
+        <input type="text" class="input-box" v-model="inputValue" placeholder="ESCRIBE AQUI TU APODO"> 
     </div>
     <div class="bright" style="text-align: center;">
         <button v-if="showButton" class="button buttonStart" @click="startQuestions"><span>EMPEZAR JUGEO</span></button>
