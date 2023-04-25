@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    username: '',
     showQuestions:false,
     endQuestions:false,
     game1: false,
@@ -84,6 +85,9 @@ export default createStore({
     getTime:(state) =>{
       return state.time;
     },
+    getUsername:(state) =>{
+      return state.username;
+    },
   },
 
   mutations: {
@@ -131,6 +135,9 @@ export default createStore({
     },
     setTime:(state,newState) =>{
       state.time += newState;
+    },
+    setUsername:(state,newState) =>{
+      state.username = newState;
     },
   },
 
