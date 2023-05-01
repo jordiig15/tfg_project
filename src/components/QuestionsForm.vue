@@ -135,10 +135,10 @@
     </div>
 
     <div id="text2" style="display:none">
-        <h2 class="content">Ahora que ya has escogido a la modelo para promocionar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar la marca.</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(9)}}</h2>
         <br>
-        <h2 class="content">Para hacerlo, como anteriromente, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo.</h2>
-        <h1 class="content">¡Cuidado! Los productos van a caer más rápido esta vez. ¡Será más difícil obtener una buena puntuación!</h1>
+        <h2 class="content">{{this.$store.getters.getEntretexto(10)}}</h2>
+        <h1 class="content">{{this.$store.getters.getEntretexto(11)}}</h1>
         <div class="bright">
             <button class="button" @click="nextQuestion('text2', 'game2')"><span>NEXT</span></button>
         </div>

@@ -19,7 +19,7 @@ export default createStore({
       "Ha contactado con nosotros McBurguer, la conocida empresa de comida rápida. Nos pide ayuda para promocionar su NUEVO menú de hamburguesas.",
       "Necesitamos que escojas el modelo perfecto para el cartel publicitario:",
       "Ha contactado con nosotros Sarah, la famosa cantante de pop,  necesita a un chico para protagonizar su videoclip, ¿a cual de ellos debemos mandar?",
-      "Ha contactado con nosotros Vida Sana, un empresa de comida healthy, necesita una chica para presentar sus nuevos productos para adelgazar, ¿cuál deberíamos mandar?",
+      "Ha contactado con nosotros VidaSana, un empresa de comida healthy, necesita una chica para presentar sus nuevos productos para adelgazar, ¿cuál deberíamos mandar?",
       "Ha contactado con nosotros la marca de moda Louis Vuitton para promocionar algunos complementos de ropa, necesita una modelo para su nueva promocion, ¿que chica deberíamos mandar?",
     ],
 
@@ -32,6 +32,9 @@ export default createStore({
       "Por tu colaboración te pagamos un total de 300$",
       "Muy bien, ya has escogido a la modelo para promocionar los productos para adelgazar. Ahora necesitamos que nos ayudes a promocionar la marca healthy.",
       "Para hacerlo encuentra las parejas lo más rápido posible para poder promocionar la marca:",
+      "Ahora que ya has escogido a la modelo para promocionar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar la marca.",
+      "Para hacerlo, como anteriormente, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo.",
+      "¡Cuidado! Los productos van a caer más rápido esta vez. ¡Será más difícil obtener una buena puntuación!",
     ],
     selectedOptions:[],
     scores: [],
