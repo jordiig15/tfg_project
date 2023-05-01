@@ -1,8 +1,11 @@
 <template>
     <div id="opt0">
+        <h2 class="content">Hola!</h2>
+        
         <h2 class="content">{{this.$store.getters.getIntro(1)}}</h2>
-        <br>
         <h2 class="content">{{this.$store.getters.getIntro(2)}}</h2>
+        <br>
+        <h2 class="content">{{this.$store.getters.getIntro(3)}}</h2>
 
             <div class="bright">
                 <button class="button" @click="nextQuestion('opt0', 'opt1')"><span>Ver anuncios pendientes</span></button>
@@ -10,7 +13,9 @@
     </div> 
 
     <div id="opt1" style="display:none">
+        <h1 class="content">Anuncio 1:</h1>
         <h2 class="content">{{this.$store.getters.getPreguntas(1)}}</h2>
+        <h2 class="content">{{this.$store.getters.getPreguntas(2)}}</h2>
         <label v-for="(option, index) in options1" :key="index">
             <input type="radio" id="p1" name="p1" :value="option.value" v-model="selectedOption">
             <img :src="option.imageUrl" :alt="option.label">
@@ -22,6 +27,7 @@
 
     <div id="opt2" style="display:none">
         <h2 class="content">{{this.$store.getters.getEntretexto(1)}}</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(2)}}</h2>
         <label v-for="(option, index) in options2" :key="index">
             <input type="radio" id="p2" name="p2" :value="option.value" v-model="selectedOption">
             <img :src="option.imageUrl" :alt="option.label">
@@ -32,9 +38,9 @@
     </div>
 
     <div id="text1" style="display:none">
-        <h2 class="content">{{this.$store.getters.getEntretexto(2)}}</h2>
-        <br>
         <h2 class="content">{{this.$store.getters.getEntretexto(3)}}</h2>
+        <br>
+        <h2 class="content">{{this.$store.getters.getEntretexto(4)}}</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('text1', 'game1')"><span>NEXT</span></button>
         </div>
@@ -48,10 +54,10 @@
     </div>
 
     <div id="scores1" style="display:none">
-        <h1 class="content">GENIAL, Has conseguido una puntución de  {{this.$store.getters.getScore}}!</h1>
+        <h1 class="content">¡GENIAL! Has conseguido una puntución de  {{this.$store.getters.getScore}}.</h1>
         <br>
-        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. Felicidades, has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
-        <h2 v-if="diferentOp" class="content">Vaya, has elegido a 2 modelos diferentes para las promociones, esto nos sale mas caro ya que tenemos que contratar a los 2 modelos.</h2>
+        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. ¡Felicidades! Has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
+        <h2 v-if="diferentOp" class="content">Vaya... Has elegido a 2 modelos diferentes para las promociones, esto nos sale más caro ya que tenemos que contratar a los 2 modelos.</h2>
         <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
         <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
@@ -60,7 +66,8 @@
     </div>
 
     <div id="opt3" style="display:none">
-        <h2 class="content">{{this.$store.getters.getPreguntas(2)}}</h2>
+        <h1 class="content">Anuncio 2:</h1>
+        <h2 class="content">{{this.$store.getters.getPreguntas(3)}}</h2>
         <label v-for="(option, index) in options3" :key="index">
             <input type="radio" id="p3" name="p3" :value="option.value" v-model="selectedOption">
             <img :src="option.imageUrl" :alt="option.label">
@@ -71,9 +78,9 @@
     </div>
 
     <div id="opt3.1" style="display:none">
-        <h2 class="content">{{this.$store.getters.getEntretexto(4)}}</h2>
         <h2 class="content">{{this.$store.getters.getEntretexto(5)}}</h2>
-        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(6)}}</h2>
+        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <img src="https://i.ibb.co/y8NPZHT/videoclip.jpg">
         <div class="bright">
             <button class="button" @click="nextQuestion('opt3.1', 'opt4')"><span>NEXT</span></button>
@@ -81,7 +88,8 @@
     </div>
 
     <div id="opt4" style="display:none">
-        <h2 class="content">{{this.$store.getters.getPreguntas(3)}}</h2>
+        <h1 class="content">Anuncio 3:</h1>
+        <h2 class="content">{{this.$store.getters.getPreguntas(4)}}</h2>
         <label v-for="(option, index) in options4" :key="index">
             <input type="radio" id="p4" name="p4" :value="option.value" v-model="selectedOption">
             <img :src="option.imageUrl" :alt="option.label">
@@ -92,30 +100,31 @@
     </div>
 
     <div id="opt4.1" style="display:none">
-        <h2 class="content">{{this.$store.getters.getEntretexto(6)}}</h2>
         <h2 class="content">{{this.$store.getters.getEntretexto(7)}}</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(8)}}</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('opt4.1', 'game3')"><span>NEXT</span></button>
         </div>
     </div>
 
     <div id="game3" style="display:none">
-        <h1  v-if="memoryEnd" class="content">GENIAL, Has tardado un tiempo total de {{this.$store.getters.getTime}} segundos!</h1>
+        <h1  v-if="memoryEnd" class="content">¡GENIAL! Has tardado un tiempo total de {{this.$store.getters.getTime}} segundos.</h1>
         <div v-if="memoryEnd" class="bright">
             <button class="button" @click="nextQuestion('game3', 'scores3')"><span>NEXT</span></button>
         </div>
     </div>
 
     <div id="scores3" style="display:none">
-        <h2 class="content">Felicidades, con tu ayuda hemos ganado un total de {{this.$store.getters.getPuntuation3}}$</h2>
-        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$</h2>
+        <h2 class="content">¡Felicidades! Con tu ayuda hemos ganado {{this.$store.getters.getPuntuation3}}$.</h2>
+        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('scores3', 'opt5')"><span>NEXT</span></button>
         </div>
     </div>
 
     <div id="opt5" style="display:none">
-        <h2 class="content">{{this.$store.getters.getPreguntas(4)}}</h2>
+        <h1 class="content">Anuncio 4:</h1>
+        <h2 class="content">{{this.$store.getters.getPreguntas(5)}}</h2>
         <label v-for="(option, index) in options5" :key="index">
             <input type="radio" id="p5" name="p5" :value="option.value" v-model="selectedOption">
             <img :src="option.imageUrl" :alt="option.label">
@@ -126,10 +135,10 @@
     </div>
 
     <div id="text2" style="display:none">
-        <h2 class="content">Ahora que has escogido la modelo perfecto para promocionar la marca y enseñar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar el producto.</h2>
+        <h2 class="content">Ahora que ya has escogido a la modelo para promocionar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar la marca.</h2>
         <br>
-        <h2 class="content">Para hacerlo, como la última vez, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!</h2>
-        <h1 class="content">Ten en cuenta que los productos van a caer mas rapido esta vez! Será mas dificil obtener una buena puntuación.</h1>
+        <h2 class="content">Para hacerlo, como anteriromente, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo.</h2>
+        <h1 class="content">¡Cuidado! Los productos van a caer más rápido esta vez. ¡Será más difícil obtener una buena puntuación!</h1>
         <div class="bright">
             <button class="button" @click="nextQuestion('text2', 'game2')"><span>NEXT</span></button>
         </div>
@@ -143,9 +152,9 @@
     </div>
 
     <div id="scores2" style="display:none">
-        <h1 class="content">GENIAL, Has conseguido una puntución de  {{this.$store.getters.getScore}}!</h1>
+        <h1 class="content">¡GENIAL! Has conseguido una puntución de  {{this.$store.getters.getScore}}.</h1>
         <br>
-        <h2 class="content"> Has ganado un total de {{this.$store.getters.getPuntuation2}}$, con esto tienes un total acumulado de {{this.$store.getters.getPuntuationTotal}}$</h2>
+        <h2 class="content"> Has ganado un total de {{this.$store.getters.getPuntuation2}}$, con esto tienes un total acumulado de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('scores2', 'end')"><span>NEXT</span></button>
         </div>
@@ -178,7 +187,7 @@ export default({
                 },
                 {
                 value: 'option13',
-                imageUrl: 'https://i.ibb.co/2yPC7Kn/2023-02-28-11h24-11.png',
+                imageUrl: 'https://i.ibb.co/wcHpcbv/2023-05-01-19h41-53-1.png',
                 label: 'o3'
                 }
             ],
@@ -195,7 +204,7 @@ export default({
                 },
                 {
                 value: 'option23',
-                imageUrl: 'https://i.ibb.co/2yPC7Kn/2023-02-28-11h24-11.png',
+                imageUrl: 'https://i.ibb.co/wcHpcbv/2023-05-01-19h41-53-1.png',
                 label: 'o3'
                 }
             ],
@@ -288,7 +297,7 @@ export default({
                 if(nextId == 'game2'){
                     this.$store.commit('setGame2', true);
                 }if(nextId == 'scores1'){
-                    if(this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)==this.$store.getters.getSelectedOptions[2].charAt(this.$store.getters.getSelectedOptions[2].length - 1)){
+                    if(this.$store.getters.getSelectedOptions[0].charAt(this.$store.getters.getSelectedOptions[0].length - 1)==this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)){
                         this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
                         this.equalOp = true;
                     }else{

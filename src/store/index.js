@@ -10,25 +10,28 @@ export default createStore({
     memory: false,
 
     intro:[
-      "Hola, a partir de ahora vas a formar parte de nuestra empresa de publicidad llamada AdModels, nuestra epresa trata de contratar a influencers / modelos para hacer diferentes tipos de promociones.",
-      "Necesitamos tu ayuda!"
+      "A partir de ahora vas a formar parte de nuestra empresa de publicidad llamada AdModels.",
+      "Nuestro objetivo es contratar a influencers / modelos para hacer diferentes tipos de promociones.",
+      "Te necesitamos..."
     ],
      
     preguntas:[
-      "1- Nos hablo una marca de comida rapida para vender su ultimo menu de hamburguesas, i necesitamos que escojas el modelo perfecto para que salga en el anuncio:",
-      "2- Tambien nos ha contactado una cantante de pop muy famosa y quiere a chicos para protagonizar su videoclip, cual de ellos debemos mandar?",
-      "3- Esta empresa de comida healthy necesita una chica para presentar sus nuevos productos para adelgazar cual nos recomiendas?",
-      "4- Esta tienda de ropa cara necesita modelos para tomarse fotos con su nueva ropa de temporada, que chicas deberiamos enviar?",
+      "Ha contactado con nosotros McBurguer, la conocida empresa de comida rápida. Nos pide ayuda para promocionar su NUEVO menú de hamburguesas.",
+      "Necesitamos que escojas el modelo perfecto para el cartel publicitario:",
+      "Ha contactado con nosotros Sarah, la famosa cantante de pop,  necesita a un chico para protagonizar su videoclip, ¿a cual de ellos debemos mandar?",
+      "Ha contactado con nosotros Vida Sana, un empresa de comida healthy, necesita una chica para presentar sus nuevos productos para adelgazar, ¿cuál deberíamos mandar?",
+      "Ha contactado con nosotros la marca de moda Louis Vuitton para promocionar algunos complementos de ropa, necesita una modelo para su nueva promocion, ¿que chica deberíamos mandar?",
     ],
 
     entretexto:[
-      "Podemos utilizar el mismo modelo para promocionar su ultimo menu de ensalada o mejor escojemos a otro?",
-      "Ahora que has escogido el modelo perfecto para promocionar la marca, necesitamos tu ayuda para promocionar el producto.",
-      "Para hacerlo haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!",
-      "Genial el videoclip ha salido perfecto!",
-      "Por tu ayuda te pagamos un total de 300$",
-      "Una vez escogido a la modelo perfecta para promocionar los productos helathy, necesitamos que nos ayudes a promocionar el producto!",
-      "Encuentra las parejas lo mas rapido posible para poder promocionar los productos cuanto antes!",
+      "¿Utilizarías el mismo modelo para promocionar su nuevo menú healthy?",
+      "Escoge en este caso el modelo perfecto:",
+      "Ahora que ya has escogido el modelo perfecto para promocionar los nuevos menús, necesitamos tu ayuda para promocionar la marca.",
+      "¡Para hacerlo haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!",
+      "¡Genial, el videoclip ha salido perfecto!",
+      "Por tu colaboración te pagamos un total de 300$",
+      "Muy bien, ya has escogido a la modelo para promocionar los productos para adelgazar. Ahora necesitamos que nos ayudes a promocionar la marca healthy.",
+      "Para hacerlo encuentra las parejas lo más rápido posible para poder promocionar la marca:",
     ],
     selectedOptions:[],
     scores: [],
