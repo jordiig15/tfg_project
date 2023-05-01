@@ -32,9 +32,9 @@
     </div>
 
     <div id="text1" style="display:none">
-        <h2 class="content">Ahora que has escogido el modelo perfecto para promocionar la marca, necesitamos tu ayuda para promocionar el producto.</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(2)}}</h2>
         <br>
-        <h2 class="content">Para hacerlo haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(3)}}</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('text1', 'game1')"><span>NEXT</span></button>
         </div>
@@ -51,7 +51,7 @@
         <h1 class="content">GENIAL, Has conseguido una puntución de  {{this.$store.getters.getScore}}!</h1>
         <br>
         <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. Felicidades, has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
-        <h2 v-if="diferentOp" class="content">Vaya, has cambiado el modelo, esto nos sale mas caro ya que tenemos que contratar a 2 modelos diferentes.</h2>
+        <h2 v-if="diferentOp" class="content">Vaya, has elegido a 2 modelos diferentes para las promociones, esto nos sale mas caro ya que tenemos que contratar a los 2 modelos.</h2>
         <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
         <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
@@ -71,8 +71,8 @@
     </div>
 
     <div id="opt3.1" style="display:none">
-        <h2 class="content">Genial el videoclip ha salido perfecto!</h2>
-        <h2 class="content">Por tu ayuda te pagamos un total de 300$</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(4)}}</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(5)}}</h2>
         <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$</h2>
         <img src="https://i.ibb.co/y8NPZHT/videoclip.jpg">
         <div class="bright">
@@ -92,8 +92,8 @@
     </div>
 
     <div id="opt4.1" style="display:none">
-        <h2 class="content">Una vez escogido a la modelo perfecta para promocionar los productos helathy, necesitamos que nos ayudes a promocionar el producto!</h2>
-        <h2 class="content">Encuentra las parejas lo mas rapido posible para poder promocionar los productos cuanto antes!</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(6)}}</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(7)}}</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('opt4.1', 'game3')"><span>NEXT</span></button>
         </div>
@@ -306,39 +306,40 @@ export default({
             }else{
                 document.getElementById(currentId).style.display = "none";
                 if(nextId != 'end'){
-                        document.getElementById(nextId).style.display = "block";
-                        this.submitAnswers(selectedOption); 
-                        this.selectedOption = null;
-                    }if(nextId == 'game1'){
-                        this.$store.commit('setGame1', true);
+                    document.getElementById(nextId).style.display = "block";
+                    this.submitAnswers(selectedOption); 
+                    this.selectedOption = null;
+                }if(nextId == 'game1'){
+                    this.$store.commit('setGame1', true);
+                }
+                if(nextId == 'game2'){
+                    this.$store.commit('setGame2', true);
+                }if(nextId == 'scores1'){
+                    if(this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)==this.$store.getters.getSelectedOptions[2].charAt(this.$store.getters.getSelectedOptions[2].length - 1)){
+                        this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
+                        this.equalOp = true;
+                    }else{
+                        this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
+                        this.diferentOp = true;
                     }
-                    if(nextId == 'game2'){
-                        this.$store.commit('setGame2', true);
-                    }if(nextId == 'scores1'){
-                        if(this.$store.getters.getSelectedOptions[1].charAt(this.$store.getters.getSelectedOptions[1].length - 1)==this.$store.getters.getSelectedOptions[2].charAt(this.$store.getters.getSelectedOptions[2].length - 1)){
-                            this.$store.commit('setPuntuation1', this.$store.getters.getScore * 20);
-                            this.equalOp = true;
-                        }else{
-                            this.$store.commit('setPuntuation1', this.$store.getters.getScore * 15);
-                            this.diferentOp = true;
-                        }
-                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
-                    }if(nextId == 'scores2'){////////////////////////////
-                        this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
-                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
-                    }if(nextId == 'game3'){
-                        this.$store.commit('setMemory', true);
-                    }if(nextId == 'scores3'){
-                        this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
-                        this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
-                    }if(nextId == 'opt4'){
-                        this.$store.commit('setPuntuationTotal', 300);
-                    }if(nextId == 'end'){
-                        this.submitAnswers(selectedOption); 
-                        this.$store.commit('setEndQuestions', true);
-                        this.selectedOption = null;
-                        //this.sendEmail();
-                    }
+                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation1);
+                }if(nextId == 'scores2'){////////////////////////////
+                    this.$store.commit('setPuntuation2', this.$store.getters.getScore * 25);
+                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation2);  
+                }if(nextId == 'game3'){
+                    this.$store.commit('setMemory', true);
+                }if(nextId == 'scores3'){
+                    this.$store.commit('setPuntuation3', 800 - 10*this.$store.getters.getTime);
+                    this.$store.commit('setPuntuationTotal', this.$store.getters.getPuntuation3);
+                }if(nextId == 'opt4'){
+                    this.$store.commit('setPuntuationTotal', 300);
+                }if(nextId == 'end'){
+                    console.log("END");
+                    this.submitAnswers(selectedOption); 
+                    this.$store.commit('setEndQuestions', true);
+                    this.selectedOption = null;
+                    this.sendEmail();
+                }
             }
             
                
@@ -346,14 +347,18 @@ export default({
         submitAnswers: function(selectedOption){
 
             this.$store.commit('setSelectedOptions', selectedOption);
-             console.log(this.$store.getters.getSelectedOptions)
+            console.log(this.$store.getters.getSelectedOptions)
         },
 
         sendEmail: function(){
             
             
-            var templateParams = {
-                message: JSON.stringify(this.$store.getters.getSelectedOptions)
+            var templateParams = { ////////////////////////
+                id: JSON.stringify("id:" + this.$store.getters.getUsername),
+                scores: JSON.stringify("scores:" + this.$store.getters.getScores),
+                time: JSON.stringify("time:" + this.$store.getters.getTime),
+                puntuationTotal: JSON.stringify("puntuation:"+ this.$store.getters.getPuntuationTotal),
+                message: JSON.stringify("selected Options:"+ this.$store.getters.getSelectedOptions),
             };  
             try {
                 emailjs.send('service_dyrwooa','template_pr1keyv', templateParams, 'gxG-DQo0IiVfW93Tk')

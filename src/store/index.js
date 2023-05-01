@@ -23,9 +23,12 @@ export default createStore({
 
     entretexto:[
       "Podemos utilizar el mismo modelo para promocionar su ultimo menu de ensalada o mejor escojemos a otro?",
-      "tienes que recojer todos los menus rapido !",
-      "Porque crees que este modelo es el mejor para esta promocion",
-      "tienes que recojer su ropa deprisa!"
+      "Ahora que has escogido el modelo perfecto para promocionar la marca, necesitamos tu ayuda para promocionar el producto.",
+      "Para hacerlo haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!",
+      "Genial el videoclip ha salido perfecto!",
+      "Por tu ayuda te pagamos un total de 300$",
+      "Una vez escogido a la modelo perfecta para promocionar los productos helathy, necesitamos que nos ayudes a promocionar el producto!",
+      "Encuentra las parejas lo mas rapido posible para poder promocionar los productos cuanto antes!",
     ],
     selectedOptions:[],
     scores: [],
