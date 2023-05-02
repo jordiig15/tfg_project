@@ -120,8 +120,8 @@ canvas {
   height: 800px !important;
   position: absolute;
   margin-top: 40px;
-  margin-left: 475px;
-  left: 0;
+  margin-left: 480px !important;
+  left: 0; 
   color:white;
   background-color: rgb(52, 50, 165);
   min-width: 960px;

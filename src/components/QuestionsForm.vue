@@ -138,6 +138,7 @@
         <h2 class="content">{{this.$store.getters.getEntretexto(9)}}</h2>
         <br>
         <h2 class="content">{{this.$store.getters.getEntretexto(10)}}</h2>
+        <br>
         <h1 class="content">{{this.$store.getters.getEntretexto(11)}}</h1>
         <div class="bright">
             <button class="button" @click="nextQuestion('text2', 'game2')"><span>NEXT</span></button>
@@ -156,8 +157,26 @@
         <br>
         <h2 class="content"> Has ganado un total de {{this.$store.getters.getPuntuation2}}$, con esto tienes un total acumulado de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
-            <button class="button" @click="nextQuestion('scores2', 'end')"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('scores2', 'final1')"><span>NEXT</span></button>
         </div>
+    </div>
+
+    <div id="final1" style="display:none">
+        <h2 class="content">{{this.$store.getters.getEntretexto(14)}}</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(15)}}</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(16)}}</h2>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('final1', 'end')"><span>NEXT</span></button>
+        </div>
+    </div>
+    <div id="end" style="display:none">
+        <h1 class="content c2">{{this.$store.getters.getEntretexto(12)}}</h1>
+        <br>
+        <h1 class="content c2">{{this.$store.getters.getEntretexto(13)}}</h1>
+        <br>
+        <h1 class="content">PUNTUACIÓN FINAL = {{this.$store.getters.getPuntuationTotal}}$.</h1>
+        <br>
+        <h1 class="content">GRACIAS POR LA PARTICIPACIÓN.</h1>
     </div>
 
 </template>
@@ -317,6 +336,7 @@ export default({
                     this.$store.commit('setPuntuationTotal', 300);
                 }if(nextId == 'end'){
                     console.log("END");
+                    document.getElementById(nextId).style.display = "block";
                     this.submitAnswers(selectedOption); 
                     this.$store.commit('setEndQuestions', true);
                     this.selectedOption = null;

@@ -35,6 +35,11 @@ export default createStore({
       "Ahora que ya has escogido a la modelo para promocionar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar la marca.",
       "Para hacerlo, como anteriormente, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo.",
       "¡Cuidado! Los productos van a caer más rápido esta vez. ¡Será más difícil obtener una buena puntuación!",
+      "La salud mental es igual de importante que la salud física, cuida tu mente y tu cuerpo.",
+      "Cada cuerpo es único y no hay un estándar de belleza que se adapte a todos.",
+      "Las redes sociales pueden afectar la imagen corporal de los adolescentes de diferentes maneras.", 
+      "Por ejemplo, las imágenes idealizadas y retocadas de cuerpos perfectos que se comparten en las redes sociales pueden generar expectativas poco realistas en los jóvenes, que a su vez pueden contribuir a desarrollar trastornos de la alimentación. Además, la comparación constante de la propia apariencia física con las imágenes que se ven en las redes sociales puede afectar negativamente la autoestima y la confianza en sí mismos de los adolescentes.", 
+      "Por otro lado, las redes sociales pueden crear una falsa sensación de comunidad y amistad, lo que puede afectar el bienestar emocional de los jóvenes y dificultar el desarrollo de relaciones sociales significativas y saludables en el mundo real."
     ],
     selectedOptions:[],
     scores: [],
