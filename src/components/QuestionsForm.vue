@@ -1,6 +1,6 @@
 <template>
     <div id="opt0">
-        <h2 class="content">Hola!</h2>
+        <h2 class="content">Bienvenido!</h2>
         
         <h2 class="content">{{this.$store.getters.getIntro(1)}}</h2>
         <h2 class="content">{{this.$store.getters.getIntro(2)}}</h2>
@@ -56,10 +56,10 @@
     <div id="scores1" style="display:none">
         <h1 class="content">¡GENIAL! Has conseguido una puntución de  {{this.$store.getters.getScore}}.</h1>
         <br>
-        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho más a vender este tipo de productos. ¡Felicidades! Has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
+        <h2 v-if="equalOp" class="content">El modelo que has escogido nos ayudará mucho a vender este tipo de productos. ¡Felicidades! Has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
         <h2 v-if="diferentOp" class="content">Vaya... Has elegido a 2 modelos diferentes para las promociones, esto nos sale más caro ya que tenemos que contratar a los 2 modelos.</h2>
         <h2 v-if="diferentOp" class="content">Has ganado un total de {{this.$store.getters.getPuntuation1}}$.</h2>
-        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
+        <h2 class="content">Has acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('scores1', 'opt3')"><span>NEXT</span></button>
         </div>
@@ -80,7 +80,7 @@
     <div id="opt3.1" style="display:none">
         <h2 class="content">{{this.$store.getters.getEntretexto(5)}}</h2>
         <h2 class="content">{{this.$store.getters.getEntretexto(6)}}</h2>
-        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
+        <h2 class="content">Has acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <img src="https://i.ibb.co/y8NPZHT/videoclip.jpg">
         <div class="bright">
             <button class="button" @click="nextQuestion('opt3.1', 'opt4')"><span>NEXT</span></button>
@@ -116,7 +116,7 @@
 
     <div id="scores3" style="display:none">
         <h2 class="content">¡Felicidades! Con tu ayuda hemos ganado {{this.$store.getters.getPuntuation3}}$.</h2>
-        <h2 class="content">Tienes acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
+        <h2 class="content">Has acumulado un total de {{this.$store.getters.getPuntuationTotal}}$.</h2>
         <div class="bright">
             <button class="button" @click="nextQuestion('scores3', 'opt5')"><span>NEXT</span></button>
         </div>
@@ -165,18 +165,84 @@
         <h2 class="content">{{this.$store.getters.getEntretexto(14)}}</h2>
         <h2 class="content">{{this.$store.getters.getEntretexto(15)}}</h2>
         <h2 class="content">{{this.$store.getters.getEntretexto(16)}}</h2>
+        <h2 class="content">{{this.$store.getters.getEntretexto(17)}}</h2>
         <div class="bright">
-            <button class="button" @click="nextQuestion('final1', 'end')"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('final1', 'opt6')"><span>NEXT</span></button>
         </div>
     </div>
+
+    <div id="opt6" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(18)}}</h1>
+        <h2 class="content">
+            <div class="container">
+                <div class="column">
+                    <p>En la cara.</p>
+                </div>
+                <div class="column">
+                    <p>En el cuerpo</p>
+                </div>
+                <div class="column">
+                    <p>He pensado en sus posibles aptitudes.</p>
+                </div>
+            </div>
+        </h2>
+        <label v-for="(option, index) in options6" :key="index">
+            <input type="radio" id="p6" name="p6" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label" style="width: 28%;">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt6', 'opt7', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt7" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(19)}}</h1>
+        <label v-for="(option, index) in options7" :key="index">
+            <input type="radio" id="p7" name="p7" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt7', 'opt8', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt8" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(20)}}</h1>
+        <label v-for="(option, index) in options8" :key="index">
+            <input type="radio" id="p8" name="p8" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt8', 'opt9', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt9" style="display:none">
+        <h1 class="content c2">{{this.$store.getters.getEntretexto(21)}}</h1>
+        <h1 class="content">{{this.$store.getters.getEntretexto(22)}}</h1>
+        <label v-for="(option, index) in options9" :key="index">
+            <input type="radio" id="p9" name="p9" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt9', 'final2', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="final2" style="display:none">
+        <br>
+        <h1 class="content c2" style="text-align: center !important;">GRACIAS POR LA PARTICIPACIÓN.</h1>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('final2', 'end')"><span>VER RESULTADOS</span></button>
+        </div>
+    </div>
+
     <div id="end" style="display:none">
         <h1 class="content c2">{{this.$store.getters.getEntretexto(12)}}</h1>
         <br>
         <h1 class="content c2">{{this.$store.getters.getEntretexto(13)}}</h1>
         <br>
         <h1 class="content">PUNTUACIÓN FINAL = {{this.$store.getters.getPuntuationTotal}}$.</h1>
-        <br>
-        <h1 class="content">GRACIAS POR LA PARTICIPACIÓN.</h1>
     </div>
 
 </template>
@@ -277,7 +343,63 @@ export default({
                 imageUrl: 'https://i.ibb.co/Sy34mFZ/image-37.png',
                 label: 'o3'
                 }
-            ]
+            ],
+            options6: [
+                {
+                value: 'option61',
+                imageUrl: 'https://i.ibb.co/B4D2XKr/2023-05-15-14h04-59.png',
+                label: 'o1',
+                title:'En la cara.'
+                },
+                {
+                value: 'option62',
+                imageUrl: 'https://i.ibb.co/4KFp1vv/2023-05-15-14h04-16.png',
+                label: 'o2',
+                title:'En el cuerpo.'
+                },
+                {
+                value: 'option63',
+                imageUrl: 'https://i.ibb.co/m0JjdLm/2023-05-15-15h22-22.png',
+                label: 'o3',
+                title:'He pensado en sus posibles aptitudes.'
+                }
+            ],
+            options7: [
+                {
+                value: 'option7Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option7No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
+            options8: [
+                {
+                value: 'option8Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option8No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
+            options9: [
+                {
+                value: 'option9Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option9No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
         }
     },
     computed: {
@@ -287,7 +409,7 @@ export default({
     },
     methods:{
         nextQuestion: function(currentId,nextId,selectedOption){
-            if(currentId == 'opt1' || currentId == 'opt2' || currentId == 'opt3' || currentId == 'opt4' || currentId == 'opt5'){
+            if(currentId == 'opt1' || currentId == 'opt2' || currentId == 'opt3' || currentId == 'opt4' || currentId == 'opt5' || currentId == 'opt6' || currentId == 'opt7' || currentId == 'opt8' || currentId == 'opt9'){
                 if (selectedOption) {
                     document.getElementById(currentId).style.display = "none";
                     if(nextId != 'end'){
@@ -396,4 +518,16 @@ export default({
     input[type="radio"]:checked + img {
         border-color: red;
     }
+
+    .container {
+        display: grid;
+        text-align: center !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .column {
+    padding: 10px;
+    }
+
 </style>

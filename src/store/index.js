@@ -10,17 +10,17 @@ export default createStore({
     memory: false,
 
     intro:[
-      "A partir de ahora vas a formar parte de nuestra empresa de publicidad llamada AdModels.",
-      "Nuestro objetivo es contratar a influencers / modelos para hacer diferentes tipos de promociones.",
-      "Te necesitamos..."
+      "A partir de ahora formas parte de nuestra empresa de publicidad llamada AdModels.",
+      "Nuestra tarea es contratar a modelos para hacer diferentes tipos de promociones.",
+      "Empezemos..."
     ],
      
     preguntas:[
       "Ha contactado con nosotros McBurguer, la conocida empresa de comida rápida. Nos pide ayuda para promocionar su NUEVO menú de hamburguesas.",
-      "Necesitamos que escojas el modelo perfecto para el cartel publicitario:",
-      "Ha contactado con nosotros Sarah, la famosa cantante de pop,  necesita a un chico para protagonizar su videoclip, ¿a cual de ellos debemos mandar?",
+      "Necesitamos que escojas el modelo perfecto para su publicidad:",
+      "Ha contactado con nosotros Shakira, la famosa cantante,  necesita a un chico para protagonizar su videoclip, ¿a cual de ellos contratarias?",
       "Ha contactado con nosotros VidaSana, un empresa de comida healthy, necesita una chica para presentar sus nuevos productos para adelgazar, ¿cuál deberíamos mandar?",
-      "Ha contactado con nosotros la marca de moda Louis Vuitton para promocionar algunos complementos de ropa, necesita una modelo para su nueva promocion, ¿que chica deberíamos mandar?",
+      "Ha contactado con nosotros la marca de moda Louis Vuitton para promocionar algunos complementos de ropa, necesita una modelo para su nueva promocion, ¿que chica contratarías?",
     ],
 
     entretexto:[
@@ -29,17 +29,23 @@ export default createStore({
       "Ahora que ya has escogido el modelo perfecto para promocionar los nuevos menús, necesitamos tu ayuda para promocionar la marca.",
       "¡Para hacerlo haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo!",
       "¡Genial, el videoclip ha salido perfecto!",
-      "Por tu colaboración te pagamos un total de 300$",
+      "Por la colaboración has ganado 300$",
       "Muy bien, ya has escogido a la modelo para promocionar los productos para adelgazar. Ahora necesitamos que nos ayudes a promocionar la marca healthy.",
       "Para hacerlo encuentra las parejas lo más rápido posible para poder promocionar la marca:",
-      "Ahora que ya has escogido a la modelo para promocionar la nueva colección de ropa, volvemos a necesitar tu ayuda para promocionar la marca.",
+      "Ahora que ya has escogido a la modelo para promocionar la nueva colección de ropa, necesitamos tu ayuda para promocionar la marca.",
       "Para hacerlo, como anteriormente, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo.",
       "¡Cuidado! Los productos van a caer más rápido esta vez. ¡Será más difícil obtener una buena puntuación!",
       "La salud mental es igual de importante que la salud física, cuida tu mente y tu cuerpo.",
       "Cada cuerpo es único y no hay un estándar de belleza que se adapte a todos.",
       "Las redes sociales pueden afectar la imagen corporal de los adolescentes de diferentes maneras.", 
-      "Por ejemplo, las imágenes idealizadas y retocadas de cuerpos perfectos que se comparten en las redes sociales pueden generar expectativas poco realistas en los jóvenes, que a su vez pueden contribuir a desarrollar trastornos de la alimentación. Además, la comparación constante de la propia apariencia física con las imágenes que se ven en las redes sociales puede afectar negativamente la autoestima y la confianza en sí mismos de los adolescentes.", 
-      "Por otro lado, las redes sociales pueden crear una falsa sensación de comunidad y amistad, lo que puede afectar el bienestar emocional de los jóvenes y dificultar el desarrollo de relaciones sociales significativas y saludables en el mundo real."
+      "Las imágenes idealizadas y retocadas de cuerpos perfectos que se comparten en las redes sociales pueden generar expectativas poco realistas en los jóvenes, que a su vez pueden contribuir a desarrollar trastornos de la alimentación (TCA).",
+      "La comparación constante de la propia apariencia física con las imágenes que se ven en las redes sociales puede afectar negativamente la autoestima y la confianza en sí mismos de los adolescentes.", 
+      "No todo lo que se ve es real.",
+      "¿En que elementos te basaste para escoger a los modelos?",
+      "¿Crees que se debe tener en cuenta otros aspectos a parte del físico?",
+      "¿Tenías conciencia de lo que son los TCA?",
+      "Los Trastornos de Conducta Alimentaria (TCA) son trastornos psicológicos graves que conllevan alteraciones de la conducta alimentaria. La persona afectada muestra una fuerte preocupación en relación al peso, la imagen corporal y la alimentación, entre otros.",
+      "¿Sabías que las redes sociales podían producir este tipo de enfermedades en algunas personas?"
     ],
     selectedOptions:[],
     scores: [],

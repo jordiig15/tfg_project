@@ -47,7 +47,7 @@ export default {
   margin: 0 auto;
 }
 .content{
-  text-align: justify;
+  text-align: left;
   margin: 40px;
   color: #fff;
   text-shadow:
@@ -59,6 +59,7 @@ export default {
 .c2{
   color: #24b87f;
 }
+
 
 .big{
   font-size: 100px;
@@ -116,6 +117,8 @@ export default {
         clear: both;
         display: table;
     }
+
+
     
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
