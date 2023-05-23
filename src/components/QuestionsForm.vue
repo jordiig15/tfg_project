@@ -202,7 +202,29 @@
             <img :src="option.imageUrl" :alt="option.label">
         </label>
         <div class="bright">
-            <button class="button" @click="nextQuestion('opt7', 'opt8', this.selectedOption)"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('opt7', 'opt10', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt10" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(24)}}</h1>
+        <label v-for="(option, index) in options10" :key="index">
+            <input type="radio" id="p10" name="p10" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt10', 'opt11', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt11" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(23)}}</h1>
+        <label v-for="(option, index) in options11" :key="index">
+            <input type="radio" id="p11" name="p11" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt11', 'opt8', this.selectedOption)"><span>NEXT</span></button>
         </div>
     </div>
 
@@ -225,7 +247,51 @@
             <img :src="option.imageUrl" :alt="option.label">
         </label>
         <div class="bright">
-            <button class="button" @click="nextQuestion('opt9', 'final2', this.selectedOption)"><span>NEXT</span></button>
+            <button class="button" @click="nextQuestion('opt9', 'opt12', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt12" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(25)}}</h1>
+        <label v-for="(option, index) in options12" :key="index">
+            <input type="radio" id="p12" name="p12" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt12', 'opt13', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt13" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(27)}}</h1>
+        <label v-for="(option, index) in options13" :key="index">
+            <input type="radio" id="p13" name="p13" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label" style="width: 40%;">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt13', 'opt14', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt14" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(28)}}</h1>
+        <label v-for="(option, index) in options14" :key="index">
+            <input type="radio" id="p14" name="p14" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt14', 'opt15', this.selectedOption)"><span>NEXT</span></button>
+        </div>
+    </div>
+
+    <div id="opt15" style="display:none">
+        <h1 class="content">{{this.$store.getters.getEntretexto(26)}}</h1>
+        <label v-for="(option, index) in options15" :key="index">
+            <input type="radio" id="p15" name="p15" :value="option.value" v-model="selectedOption">
+            <img :src="option.imageUrl" :alt="option.label">
+        </label>
+        <div class="bright">
+            <button class="button" @click="nextQuestion('opt15', 'final2', this.selectedOption)"><span>NEXT</span></button>
         </div>
     </div>
 
@@ -400,6 +466,88 @@ export default({
                 label: 'oN'
                 }
             ],
+            options10: [
+                {
+                value: 'option10Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option10No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
+            options11: [
+                {
+                value: 'option11Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option11No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
+            options12: [
+                {
+                value: 'option12Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option12No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
+            options13: [
+                {
+                value: 'option13-1',
+                imageUrl: 'https://i.ibb.co/PrJNbNy/2023-05-23-16h28-23.png',
+                label: 'oY'
+                },
+                {
+                value: 'option13_1i2',
+                imageUrl: 'https://i.ibb.co/Jn6mwvx/2023-05-23-16h29-27.png',
+                label: 'oN'
+                },
+                {
+                value: 'option13_2i4',
+                imageUrl: 'https://i.ibb.co/zhrCD3y/2023-05-23-16h29-32.png',
+                label: 'oN'
+                },
+                { 
+                value: 'option13_+4',
+                imageUrl: 'https://i.ibb.co/mH4yNLX/2023-05-23-16h34-57.png',
+                label: 'oN'
+                },
+            ],
+            options14: [
+                {
+                value: 'option14Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option14No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
+            options15: [
+                {
+                value: 'option15Si',
+                imageUrl: 'https://i.ibb.co/55D8b41/2023-05-15-13h50-15.png',
+                label: 'oY'
+                },
+                {
+                value: 'option15No',
+                imageUrl: 'https://i.ibb.co/swZBwmL/2023-05-15-13h51-12.png',
+                label: 'oN'
+                }
+            ],
         }
     },
     computed: {
@@ -409,7 +557,7 @@ export default({
     },
     methods:{
         nextQuestion: function(currentId,nextId,selectedOption){
-            if(currentId == 'opt1' || currentId == 'opt2' || currentId == 'opt3' || currentId == 'opt4' || currentId == 'opt5' || currentId == 'opt6' || currentId == 'opt7' || currentId == 'opt8' || currentId == 'opt9'){
+            if(currentId == 'opt1' || currentId == 'opt2' || currentId == 'opt3' || currentId == 'opt4' || currentId == 'opt5' || currentId == 'opt6' || currentId == 'opt7' || currentId == 'opt8' || currentId == 'opt9'|| currentId == 'opt10'|| currentId == 'opt11'|| currentId == 'opt12'|| currentId == 'opt13'|| currentId == 'opt14'|| currentId == 'opt15'){
                 if (selectedOption) {
                     document.getElementById(currentId).style.display = "none";
                     if(nextId != 'end'){

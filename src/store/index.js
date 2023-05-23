@@ -33,7 +33,7 @@ export default createStore({
       "Muy bien, ya has escogido a la modelo para promocionar los productos para adelgazar. Ahora necesitamos que nos ayudes a promocionar la marca healthy.",
       "Para hacerlo encuentra las parejas lo más rápido posible para poder promocionar la marca:",
       "Ahora que ya has escogido a la modelo para promocionar la nueva colección de ropa, necesitamos tu ayuda para promocionar la marca.",
-      "Para hacerlo, como anteriormente, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo.",
+      "Para hacerlo, como anteriormente, haz click sobre el máximo de productos que puedas antes de que se te acabe el tiempo.",//10
       "¡Cuidado! Los productos van a caer más rápido esta vez. ¡Será más difícil obtener una buena puntuación!",
       "La salud mental es igual de importante que la salud física, cuida tu mente y tu cuerpo.",
       "Cada cuerpo es único y no hay un estándar de belleza que se adapte a todos.",
@@ -45,7 +45,15 @@ export default createStore({
       "¿Crees que se debe tener en cuenta otros aspectos a parte del físico?",
       "¿Tenías conciencia de lo que son los TCA?",
       "Los Trastornos de Conducta Alimentaria (TCA) son trastornos psicológicos graves que conllevan alteraciones de la conducta alimentaria. La persona afectada muestra una fuerte preocupación en relación al peso, la imagen corporal y la alimentación, entre otros.",
-      "¿Sabías que las redes sociales podían producir este tipo de enfermedades en algunas personas?"
+      "¿Sabías que las redes sociales podían producir este tipo de enfermedades en algunas personas?",
+      "¿Te comparas con las imágenes que ves en las redes sociales?",////
+      "¿Crees que las redes sociales pueden influir en la forma en que te percibes a ti mismo/a?",
+      "¿Has conocido a alguien que haya sufrido un TCA?",
+      "¿Te gustaría ver más representación de la diversidad corporal en las redes sociales?",//26
+      "¿Cuánto tiempo promedio pasas en las redes sociales diariamente?",//27
+      "¿Crees que el tiempo que pasas en las redes sociales influye en cómo te comparas con los demás?",//28
+
+
     ],
     selectedOptions:[],
     scores: [],
